@@ -60,6 +60,7 @@ export default function Seats() {
     useEffect(()=>
     {
       dispatch(setBarClass({bar1:"bar ",bar2:"bar bar-color",bar3:"bar"}));
+      window.scrollTo(0,0);
     },[]);
     
   return (

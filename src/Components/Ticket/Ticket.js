@@ -39,6 +39,7 @@ export default function Ticket() {
     useEffect(()=>
     {
       dispatch(setBarClass({bar1:"bar ",bar2:"bar ",bar3:"bar bar-color"}));
+      window.scrollTo(0,0);
     },[]);
     
   return (

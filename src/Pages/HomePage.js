@@ -25,8 +25,11 @@ export default function HomePage() {
     {
       const data=await fetch("https://ticket-booking-system-f2d92-default-rtdb.firebaseio.com/Cities.json")
       .then((resp)=>{
-        console.log(resp.json());
+        console.log(resp);
         return resp.body;
+      }).catch((err)=>
+      {
+        console.log("Error Occured :", err);
       });
       console.log(data);
     }
