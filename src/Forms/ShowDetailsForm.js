@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getDataFromDB } from '../Database/Data';
-import { setSeats,setShowData,setBarClass } from '../Redux/ShowData';
+import { setSeats, setShowData, setBarClass } from '../Redux/ShowData';
 import Option from '../Components/PickYourShow/Option';
 import { useAuth } from '../Components/ContextApi/Auth';
 export default function ShowDetailsForm() {
@@ -10,18 +10,18 @@ export default function ShowDetailsForm() {
     // Additional Functions
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const auth=useAuth();
+    const auth = useAuth();
     // const barClass=useSelector((state)=>state.ShowDetails.barClass);
-  
+
 
     const [data, setData] = useState([])
     const [cities, setCities] = useState([]);
     const [theatre, setTheatre] = useState([]);
     const [selectedCity, setSelectedCity] = useState([]);
-    const [seats,setSeat]=useState(0);
+    const [seats, setSeat] = useState(0);
     const [movies, setMovies] = useState([]);
     const [timings, setTimings] = useState([]);
-    const [flag,setFlag]=useState(0);
+    const [flag, setFlag] = useState(0);
     const [showDetails, setShowDetails] = useState({
         city: "",
         theatre: "",
@@ -36,13 +36,42 @@ export default function ShowDetailsForm() {
     const TimeRef = useRef();
     const NextBtnRef = useRef();
 
-
+    const checkShowDetails = () => {
+        if (showDetails.city === 'None') {
+            setFlag(0);
+            return false;
+        }
+        else if (showDetails.theatre === 'None') {
+            setFlag(0);
+            return false;
+        }
+        else if (showDetails.movie === 'None') {
+            setFlag(0);
+            return false;
+        }
+        else if (showDetails.tickets === 'None') {
+            setFlag(0);
+            return false;
+        }
+        else if (showDetails.timings === 'None') {
+            setFlag(0);
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
     // Moving To Next Page
     const NextPage = () => {
-        dispatch(setShowData({showDetails}));
-        dispatch(setBarClass({bar1:"bar",bar2:"bar bar-color",bar3:"bar"}));
+
+        let check = checkShowDetails();
+        if (!check) {
+            alert("Provide Correct Details");
+            return;
+        }
+        dispatch(setShowData({ showDetails }));
         auth.navigateStatusTrue('seats');
-        navigate('/seats',{replace:true});
+        navigate('/seats', { replace: true });
     }
 
     // Get Timings 
@@ -77,11 +106,16 @@ export default function ShowDetailsForm() {
     // To Get Theatre Infromation 
     const getTheatre = (e) => {
         let selectedTheater = { ...showDetails };
-        selectedTheater.theatre = e.target.value
-        setShowDetails(selectedTheater)
+        selectedTheater.theatre = e.target.value;
+        if(e.target.value==='None')
+        {
+            alert("Please proivide Theatre ..");
+            return;
+        }
+        setShowDetails(selectedTheater);
         MovieRef.current.disabled = false;
         setMovies(Object.keys(selectedCity[selectedTheater.theatre].Movies));
-        const array=Object.values(selectedCity[selectedTheater.theatre]);
+        const array = Object.values(selectedCity[selectedTheater.theatre]);
         setSeat(array[1]);
         setTimings(Object.keys(selectedCity[selectedTheater.theatre].Timings))
     }
@@ -89,7 +123,12 @@ export default function ShowDetailsForm() {
     //To Get City And its Theatre Information     
     const getCity = (e) => {
         let selectedcity = { ...showDetails };
-        selectedcity.city = e.target.value
+        selectedcity.city = e.target.value;
+        if(e.target.value==='None')
+        {
+            alert("Please Select a City");
+            return;
+        }
         setShowDetails(selectedcity)
         TheaterRef.current.disabled = false;
         const foundTheatreDetails = data.find(obj => {
@@ -140,7 +179,7 @@ export default function ShowDetailsForm() {
                 </div>
 
                 {/* Movies Dropdown Feilds */}
-                <div  className='Dropdowns'>
+                <div className='Dropdowns'>
 
                     <label>
                         Movie :
@@ -153,8 +192,8 @@ export default function ShowDetailsForm() {
                     </select>
                 </div>
                 {/* Tickets Dropdown Feilds */}
-                <div  className='Dropdowns'>
-                    
+                <div className='Dropdowns'>
+
                     <label>
                         Tickets :
                     </label>
@@ -169,7 +208,7 @@ export default function ShowDetailsForm() {
                 </div>
 
                 {/* Timings Dropdown Feilds  */}
-                <div  className='Dropdowns'>
+                <div className='Dropdowns'>
 
                     <label>
                         Time :
@@ -188,14 +227,14 @@ export default function ShowDetailsForm() {
                 </div> */}
 
             </form>
-                {/* Next Button  */}
-                {
-                    !flag ?
-                        <></>
+            {/* Next Button  */}
+            {
+                !flag ?
+                    <></>
                     :
-                        <button onClick={NextPage} ref={NextBtnRef}  className='btn show-details-btn' >Next</button>
-                }
-            
+                    <button onClick={NextPage} ref={NextBtnRef} className='btn show-details-btn' >Next</button>
+            }
+
         </>
     )
 }

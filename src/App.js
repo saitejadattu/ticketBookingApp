@@ -15,19 +15,19 @@ function App() {
   return (
     <div className='App'>
       <AuthProvider>
-       <BrowserRouter>
-      <Routes>
-        <Route path="/"  element={<Layout />}>
-          <Route index  element={<HomePage />}/>
-          <Route path='pick-show' element={<PickShow />} />
-          <Route path="seats" element={ <RequireSeatsAuth><Seats /></RequireSeatsAuth> } />
-          <Route path="Ticket" element={<RequireTicketAuth><Ticket /></RequireTicketAuth>} />
-          <Route path="Success" element={<Success />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-    </AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path='pick-show' element={<PickShow />} />
+              <Route path="seats" element={<RequireSeatsAuth><Seats /></RequireSeatsAuth>} />
+              <Route path="Ticket" element={<RequireTicketAuth><Ticket /></RequireTicketAuth>} />
+              <Route path="Success" element={<Success />} />
+              <Route path="*" element={<NoPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

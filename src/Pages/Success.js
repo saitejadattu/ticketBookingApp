@@ -3,9 +3,12 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setBarClass } from "../Redux/ShowData";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Components/ContextApi/Auth";
 export default function Success() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const auth=useAuth();
+
   useEffect(() => {
     dispatch(setBarClass({ bar1: "bar", bar2: "bar", bar3: "bar" }));
   }, []);
@@ -19,6 +22,7 @@ export default function Success() {
           <button
             className="btn"
             onClick={() => {
+              auth.navigateStatusFalse();
               navigate("/");
             }}
           >

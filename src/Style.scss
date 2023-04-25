@@ -1,301 +1,250 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,900&display=swap");
 
 // Colors used for website
-$color1:#2A2F4F;
-$color2:#917FB3;
-$color3:#E5BEEC;
-$color4:#FDE2F3;
+$color1: #2a2f4f;
+$color2: #917fb3;
+$color3: #e5beec;
+$color4: #fde2f3;
 
+.Mobile-Ticket {
+  display: none;
+}
 
-.red-color
-{
-    color: red;
+.red-color {
+  color: red;
 }
 
 //Layout Page Scss
-.main
-{
-    .Site-Logo
-    {
-        width: 100px;
-        height: 100px;
+.main {
+  .Site-Logo {
+    width: 100px;
+    height: 100px;
+  }
+  .Headers {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-around;
+    align-items: center;
+    .bar {
+      width: 200px;
+      height: 5px;
+      border: 2px solid $color1;
+      border-radius: 10px;
     }
-    .Headers
-    {
-        display: grid;
-        grid-template-columns:auto auto auto auto;
-        justify-content: space-around;
-        align-items: center;
-        .bar
-        {
-            width: 200px;
-            height: 5px;
-            border: 2px solid $color1;
-            border-radius: 10px;
-        }
-        a 
-        {
-            text-decoration: none;
-            color: black;
-            font-family: 'Roboto', sans-serif;
-            font-size: 18px;
-        }
-        a:hover
-        {
-            color: darkgoldenrod;
-        }
-        
-        
+    a {
+      text-decoration: none;
+      color: black;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
-    .show-details-btn
-    {
-            margin-top: 3%;
+    a:hover {
+      color: darkgoldenrod;
     }
+  }
+  .show-details-btn {
+    margin-top: 3%;
+  }
 
-    .Homepage-image
-    {
-        margin-top: 20px;
-        cursor: pointer;
-        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-        border: 1px solid $color4;
+  .Homepage-image {
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border: 1px solid $color4;
+  }
+  .Show-Deatils-Form {
+    margin: 2% 20%;
+    padding: 5% 4%;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    select {
+      width: 200px;
+      height: 30px;
+      margin: 10px;
     }
-    .Show-Deatils-Form
-    {
-        margin: 2% 20%;
-        padding: 5% 4%;
-        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-        select 
-        {
-            width: 200px;
-            height: 30px;
-            margin: 10px;
-        }
-        .Dropdowns
-        {
-            display: grid;
-            grid-template-columns: 25% 25%;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Roboto', sans-serif;
-        }
+    .Dropdowns {
+      display: grid;
+      grid-template-columns: 25% 25%;
+      align-items: center;
+      justify-content: center;
+      font-family: "Roboto", sans-serif;
     }
-    
+  }
 }
 
- .bar-color
-{
-    background-color: $color2;
+.bar-color {
+  background-color: $color2;
 }
-
 
 // Pick Your Show page SCSS
 
-
-
-
 // Selecting Seats page SCSS
 
-
-.Seats-page
-{
-    .Seats{
-        margin-top: 20px;
-    }
-    .Screen
-    {
-        width: 500px;
-        height: 15px;
-        border: 3px solid black;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        margin: 40px auto;
-    }
-    .Seat-checkbox
-    {
-        width: 20px;
-        height: 20px;  
-        background-color: $color1;
-
-    }
-    .Seat-checkbox:hover 
-    {
-        background-color: $color4;
-    }
-    .blocked
-    {
-        background-color: red;
-    }
+.Seats-page {
+  .Seats {
+    margin-top: 20px;
+  }
+  .Screen {
+    width: 500px;
+    height: 15px;
+    border: 3px solid black;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: 40px auto;
+  }
+  .Seat-checkbox {
+    width: 20px;
+    height: 20px;
+    background-color: $color1;
+  }
+  .Seat-checkbox:hover {
+    background-color: $color4;
+  }
+  .blocked {
+    background-color: red;
+  }
 }
-
-
-
 
 // Ticket Page SCSS
-.color1 
-{
-    color: $color1;
+.color1 {
+  color: $color1;
 }
-.color2 
-{
-    color: $color2;
+.color2 {
+  color: $color2;
 }
-.color3
-{
-    color :$color3
+.color3 {
+  color: $color3;
 }
-.color4
-{
-    color: $color4;
+.color4 {
+  color: $color4;
 }
 
-.bg-color1 
-{
-    background-color: $color1;
+.bg-color1 {
+  background-color: $color1;
 }
-.bg-color2 
-{
-    background-color: $color2;
+.bg-color2 {
+  background-color: $color2;
 }
-.bg-color3 
-{
-    background-color: $color3;
+.bg-color3 {
+  background-color: $color3;
 }
-.bg-color4 
-{
-    background-color: $color4;
+.bg-color4 {
+  background-color: $color4;
 }
 
-.Ticket-page
-{
-    .Ticket 
-    {
-        display: grid;
-        grid-template-columns: 70% 30%;
-        margin: 5% 3%;
-        border: 5px dotted black;
-        background-color: white;
-    }
-    .Ticket-left-part
-    {
-        display: flex;
-    }
-    .left-QR
-    {
-        align-items: center;
-        align-self: center;
-        flex-grow: 1;
-        img 
-        {
-            transform: rotate(270deg);
-            width: 300px;
-            height: 100px;
-        }   
-    }
-    .Ticket-Details
-    {
-        flex-grow: 2;
-    }
-
-    .Ticket-right-part
-    {
-        border-left: 3px dashed black;
-    }
-    .Ticket-Background-color
-    {
-        background-color: $color1;
-        color: white;
-        font-size: large;
-        padding: 10px;
-        width: 600px;
-        justify-content: center;
-    }
-    .Ticket-color
-    {
-        color: $color1;
-       font-size: 28px;
-    }
-}
-
-
-footer{
-    margin-top: 35px;
-    background-color: $color1;
-    color: white;
-    height: 200px;
-    padding: 2%;
-    box-shadow: black 0px -50px 36px -28px inset;
-    .footer-logo
-    {
-        width: 200px;
-        box-shadow: $color2 0px 5px 15px;  
-    }
-}
-.btn
-{
-    background-color: $color1;
-    color: white;
-    padding: 8px 18px;
-    border: 1px solid white;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-.btn:hover
-{
+.Ticket-page {
+  .Ticket {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    margin: 5% 3%;
+    border: 5px dotted black;
     background-color: white;
-    color: $color1;
-    border: 1px solid $color1;
-}
+  }
+  .Ticket-left-part {
+    display: flex;
+  }
+  .left-QR {
+    align-items: center;
+    align-self: center;
+    flex-grow: 1;
+    img {
+      transform: rotate(270deg);
+      width: 300px;
+      height: 100px;
+    }
+  }
+  .Ticket-Details {
+    flex-grow: 2;
+  }
 
-.freeze-btn
-{
-    // background-color: $color3;
-    background: repeating-linear-gradient(45deg, gold, transparent 100px);
-    color: $color1;
-    padding: 10px;
-    font-weight: bold;
-    border: 1px solid $color1;
-
-}
-.freeze-btn:hover
-{
+  .Ticket-right-part {
+    border-left: 3px dashed black;
+  }
+  .Ticket-Background-color {
     background-color: $color1;
-    color: $color3;
-    border: 1px solid $color3;
-}
-
-.change-btn
-{
-    // background-color: $color4;
-    background: repeating-linear-gradient(45deg, green, transparent 100px);
-    color: $color1;
+    color: white;
+    font-size: large;
     padding: 10px;
-    font-weight: bold;
-    border: 1px solid $color1;
-}
-.change-btn:hover{
-    background-color: $color1;
-    color: $color4;
-    border: 1px solid $color4;
-}
-
-.color-red 
-{
-    width: 300px;
-    background-color:red;
-    color: white;
-    margin: 10px auto;
-}
-.color-green 
-{
-    width: 300px;
-    margin: 10px auto;
-    background-color: green;
-    color: white;
+    width: 600px;
+    justify-content: center;
+  }
+  .Ticket-color {
+    color: $color1;
+    font-size: 28px;
+  }
 }
 
-.animate-charcter
-{
-   text-transform: uppercase;
+footer {
+  margin-top: 35px;
+  background-color: $color1;
+  color: white;
+  height: 200px;
+  padding: 2%;
+  box-shadow: black 0px -50px 36px -28px inset;
+  .footer-logo {
+    width: 200px;
+    box-shadow: $color2 0px 5px 15px;
+    border-radius: 50%;
+  }
+}
+.btn {
+  background-color: $color1;
+  color: white;
+  padding: 8px 18px;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.btn:hover {
+  background-color: white;
+  color: $color1;
+  border: 1px solid $color1;
+}
+
+.freeze-btn {
+  // background-color: $color3;
+  background: repeating-linear-gradient(45deg, gold, transparent 100px);
+  color: $color1;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid $color1;
+}
+.freeze-btn:hover {
+  background-color: $color1;
+  color: $color3;
+  border: 1px solid $color3;
+}
+
+.change-btn {
+  // background-color: $color4;
+  background: repeating-linear-gradient(45deg, green, transparent 100px);
+  color: $color1;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid $color1;
+}
+.change-btn:hover {
+  background-color: $color1;
+  color: $color4;
+  border: 1px solid $color4;
+}
+
+.color-red {
+  width: 300px;
+  background-color: red;
+  color: white;
+  margin: 10px auto;
+}
+.color-green {
+  width: 300px;
+  margin: 10px auto;
+  background-color: green;
+  color: white;
+}
+
+.animate-charcter {
+  text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
     #231557 0%,
@@ -313,7 +262,7 @@ footer{
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-      font-size: 30px;
+  font-size: 30px;
 }
 
 @keyframes textclip {
@@ -322,439 +271,426 @@ footer{
   }
 }
 
-
-
 // Front-page SCSS
 
 .Main-title {
-    position: relative;
-    font-size: 10em;
-    letter-spacing:10px;
-    font-family: sans-serif;
-    display:table;
-    margin:40px auto;
-    cursor:pointer;
-    transition:.6s;
-    color: $color1;
-    border: 3px dashed $color2;
-    margin: 30px 60px;
-  }
-  .Main-title:before,
-  .Main-title:after {
-    content:'TICKET BOOKING SYSTEM';
-    transition:.6s;
-  }
-  .Main-title:before {
-    left: 0;
-    top: 0;
-    position: absolute;
-    z-index:-1;
-    text-shadow:
-     0px 0px,
-     0px 0px,
-     0px 0px,
-     0px 0px,
-     0px 0px,
-     0px 0px,
-     0px 0px,
-     0px 0px,
-     0px 0px,
-     0px 0px;
-    -webkit-mask:repeating-linear-gradient(45deg, transparent 0 3px, rgba(0,0,0,0.5) 0 6px);
-            mask:repeating-linear-gradient(45deg, transparent 0 3px, rgba(0,0,0,0.5) 0 6px);
-  }
-  .Main-title:hover {
-    transform:translate(-10px,-10px);
-  }  
-  .Main-title:hover:before {
-    text-shadow:
-     1px 1px,
-     2px 2px,
-     3px 3px,
-     4px 4px,
-     5px 5px,
-     6px 6px,
-     7px 7px,
-     8px 8px,
-     9px 9px,
-     10px 10px;
-  }
-
+  position: relative;
+  font-size: 10em;
+  letter-spacing: 10px;
+  font-family: sans-serif;
+  display: table;
+  margin: 40px auto;
+  cursor: pointer;
+  transition: 0.6s;
+  color: $color1;
+  border: 3px dashed $color2;
+  margin: 30px 60px;
+}
+.Main-title:before,
+.Main-title:after {
+  content: "TICKET BOOKING SYSTEM";
+  transition: 0.6s;
+}
+.Main-title:before {
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: -1;
+  text-shadow: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px,
+    0px 0px, 0px 0px, 0px 0px;
+  -webkit-mask: repeating-linear-gradient(
+    45deg,
+    transparent 0 3px,
+    rgba(0, 0, 0, 0.5) 0 6px
+  );
+  mask: repeating-linear-gradient(
+    45deg,
+    transparent 0 3px,
+    rgba(0, 0, 0, 0.5) 0 6px
+  );
+}
+.Main-title:hover {
+  transform: translate(-10px, -10px);
+}
+.Main-title:hover:before {
+  text-shadow: 1px 1px, 2px 2px, 3px 3px, 4px 4px, 5px 5px, 6px 6px, 7px 7px,
+    8px 8px, 9px 9px, 10px 10px;
+}
 
 //   Book Now button Scss
 
-
 .glowing-btn {
-    position: relative;
-    background: $color1;
-    cursor: pointer;
-    padding: 0.35em 1em;
-    border: 0.15em solid var(--glow-color);
-    border-radius: 0.45em;
-    perspective: 2em;
-    font-family: "Raleway", sans-serif;
-    font-size: 1em;
-    font-weight: 700;
-    letter-spacing: 0.5em;
-    -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-      0px 0px 0.5em 0px var(--glow-color);
-    -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-      0px 0px 0.5em 0px var(--glow-color);
-    box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-      0px 0px 0.5em 0px var(--glow-color);
-    animation: border-flicker 2s linear infinite;
+  position: relative;
+  background: $color1;
+  cursor: pointer;
+  padding: 0.35em 1em;
+  border: 0.15em solid var(--glow-color);
+  border-radius: 0.45em;
+  perspective: 2em;
+  font-family: "Raleway", sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  animation: border-flicker 2s linear infinite;
+}
+
+.glowing-txt {
+  float: left;
+  margin-right: -0.8em;
+  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+  animation: text-flicker 3s linear infinite;
+  color: $color4;
+}
+
+.faulty-letter {
+  opacity: 0.5;
+  animation: faulty-flicker 2s linear infinite;
+}
+
+.glowing-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  filter: blur(1em);
+  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  background: $color1;
+  color: $color4;
+  pointer-events: none;
+}
+
+.glowing-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: $color1;
+  box-shadow: 0 0 2em 0.2em $color1;
+  transition: opacity 100ms linear;
+}
+
+.glowing-btn:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  animation: none;
+}
+
+.glowing-btn:hover .glowing-txt {
+  animation: none;
+}
+
+.glowing-btn:hover .faulty-letter {
+  animation: none;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.glowing-btn:hover:before {
+  filter: blur(1.5em);
+  opacity: 1;
+}
+
+.glowing-btn:hover:after {
+  opacity: 1;
+}
+
+@keyframes faulty-flicker {
+  0% {
+    opacity: 0.1;
   }
-  
-  .glowing-txt {
-    float: left;
-    margin-right: -0.8em;
-    -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-      0 0 0.45em var(--glow-color);
-    -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-      0 0 0.45em var(--glow-color);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
-    animation: text-flicker 3s linear infinite;
-    color: $color4;
+  2% {
+    opacity: 0.1;
   }
-  
-  .faulty-letter {
+  4% {
     opacity: 0.5;
-    animation: faulty-flicker 2s linear infinite;
   }
-  
-  .glowing-btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  19% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  83% {
+    opacity: 0.4;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
     opacity: 0.7;
-    filter: blur(1em);
-    transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
-    background: $color1;
-    color: $color4;
-    pointer-events: none;
   }
-  
-  .glowing-btn::after {
-    content: "";
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .glowing-btn {
+    font-size: 1em;
+  }
+}
+
+.sucess-conatiner {
+  border-top: 20px dashed green;
+  padding: 5% 10%;
+  margin: 10% 20%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+// Email SCSS
+
+.letter-image {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.animated-mail {
+  position: absolute;
+  height: 150px;
+  width: 200px;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  transition: 0.4s;
+
+  .body {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
     bottom: 0;
-    opacity: 0;
-    z-index: -1;
-    background-color: $color1;
-    box-shadow: 0 0 2em 0.2em $color1;
-    transition: opacity 100ms linear;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 100px 200px;
+    border-color: transparent transparent #e95f55 transparent;
+    z-index: 2;
   }
-  
-  .glowing-btn:hover {
-    color: rgba(0, 0, 0, 0.8);
-    text-shadow: none;
-    animation: none;
+
+  .top-fold {
+    position: absolute;
+    top: 50px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 100px 0 100px;
+    -webkit-transform-origin: 50% 0%;
+    -webkit-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+    -moz-transform-origin: 50% 0%;
+    -moz-transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+    transform-origin: 50% 0%;
+    transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+    border-color: #cf4a43 transparent transparent transparent;
+    z-index: 2;
   }
-  
-  .glowing-btn:hover .glowing-txt {
-    animation: none;
+
+  .back-fold {
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 100px;
+    background: #cf4a43;
+    z-index: 0;
   }
-  
-  .glowing-btn:hover .faulty-letter {
-    animation: none;
-    text-shadow: none;
-    opacity: 1;
+
+  .left-fold {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 50px 0 50px 100px;
+    border-color: transparent transparent transparent #e15349;
+    z-index: 2;
   }
-  
-  .glowing-btn:hover:before {
-    filter: blur(1.5em);
-    opacity: 1;
-  }
-  
-  .glowing-btn:hover:after {
-    opacity: 1;
-  }
-  
-  @keyframes faulty-flicker {
-    0% {
-      opacity: 0.1;
+
+  .letter {
+    left: 20px;
+    bottom: 0px;
+    position: absolute;
+    width: 160px;
+    height: 60px;
+    background: white;
+    z-index: 1;
+    overflow: hidden;
+    -webkit-transition: 0.4s 0.2s;
+    -moz-transition: 0.4s 0.2s;
+    transition: 0.4s 0.2s;
+
+    .letter-border {
+      height: 10px;
+      width: 100%;
+      background: repeating-linear-gradient(
+        -45deg,
+        #cb5a5e,
+        #cb5a5e 8px,
+        transparent 8px,
+        transparent 18px
+      );
     }
-    2% {
-      opacity: 0.1;
+
+    .letter-title {
+      margin-top: 10px;
+      margin-left: 5px;
+      height: 10px;
+      width: 40%;
+      background: #cb5a5e;
     }
-    4% {
-      opacity: 0.5;
+    .letter-context {
+      margin-top: 10px;
+      margin-left: 5px;
+      height: 10px;
+      width: 20%;
+      background: #cb5a5e;
     }
-    19% {
-      opacity: 0.5;
-    }
-    21% {
-      opacity: 0.1;
-    }
-    23% {
-      opacity: 1;
-    }
-    80% {
-      opacity: 0.5;
-    }
-    83% {
-      opacity: 0.4;
-    }
-  
-    87% {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes text-flicker {
-    0% {
-      opacity: 0.1;
-    }
-  
-    2% {
-      opacity: 1;
-    }
-  
-    8% {
-      opacity: 0.1;
-    }
-  
-    9% {
-      opacity: 1;
-    }
-  
-    12% {
-      opacity: 0.1;
-    }
-    20% {
-      opacity: 1;
-    }
-    25% {
+
+    .letter-stamp {
+      margin-top: 30px;
+      margin-left: 120px;
+      border-radius: 100%;
+      height: 30px;
+      width: 30px;
+      background: #cb5a5e;
       opacity: 0.3;
     }
-    30% {
-      opacity: 1;
-    }
-  
-    70% {
-      opacity: 0.7;
-    }
-    72% {
-      opacity: 0.2;
-    }
-  
-    77% {
-      opacity: 0.9;
-    }
-    100% {
-      opacity: 0.9;
-    }
   }
-  
-  @keyframes border-flicker {
-    0% {
-      opacity: 0.1;
-    }
-    2% {
-      opacity: 1;
-    }
-    4% {
-      opacity: 0.1;
-    }
-  
-    8% {
-      opacity: 1;
-    }
-    70% {
-      opacity: 0.7;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  @media only screen and (max-width: 600px) {
-    .glowing-btn{
-      font-size: 1em;
-    }
-  }
-  
-  .sucess-conatiner
-  {
-    border-top: 20px dashed green;
-    padding: 5% 10%;
-    margin: 10% 20%;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  }
+}
 
+.shadow {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  width: 400px;
+  height: 30px;
+  transition: 0.4s;
+  transform: translateX(-50%);
+  -webkit-transition: 0.4s;
+  -webkit-transform: translateX(-50%);
+  -moz-transition: 0.4s;
+  -moz-transform: translateX(-50%);
 
+  border-radius: 100%;
+  background: radial-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
+  );
+}
 
-
-  // Email SCSS
-
-  .letter-image {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    width: 200px;
-    height: 200px;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-  }
-  
+.letter-image:hover {
   .animated-mail {
-    position: absolute;
-    height: 150px;
-    width: 200px;
-    -webkit-transition: .4s;
-    -moz-transition: .4s;
-    transition: .4s;
-    
-    .body {
-      position: absolute;
-      bottom: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 0 100px 200px;
-      border-color: transparent transparent #e95f55 transparent;
-      z-index: 2;
-    }
-    
-    .top-fold {
-      position: absolute;
-      top: 50px;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 50px 100px 0 100px;
-      -webkit-transform-origin: 50% 0%;
-      -webkit-transition: transform .4s .4s, z-index .2s .4s;
-      -moz-transform-origin: 50% 0%;
-      -moz-transition: transform .4s .4s, z-index .2s .4s;
-      transform-origin: 50% 0%;
-      transition: transform .4s .4s, z-index .2s .4s;
-      border-color: #cf4a43 transparent transparent transparent;
-      z-index: 2;
-    }
-    
-    .back-fold {
-      position: absolute;
-      bottom: 0;
-      width: 200px;
-      height: 100px;
-      background: #cf4a43;
-      z-index: 0;
-    }
-    
-    .left-fold {
-      position: absolute;
-      bottom: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 50px 0 50px 100px;
-      border-color: transparent transparent transparent #e15349;
-      z-index: 2;
-    }
-    
-    .letter {
-      left: 20px;
-      bottom: 0px;
-      position: absolute;
-      width: 160px;
-      height: 60px;
-      background: white;
-      z-index: 1;
-      overflow: hidden;
-      -webkit-transition: .4s .2s;
-      -moz-transition: .4s .2s;
-      transition: .4s .2s;
-      
-      .letter-border {
-        height: 10px;
-        width: 100%;
-        background: repeating-linear-gradient(
-          -45deg,
-          #cb5a5e,
-          #cb5a5e 8px,
-          transparent 8px,
-          transparent 18px
-        );
-      }
-      
-      .letter-title {
-        margin-top: 10px;
-        margin-left: 5px;
-        height: 10px;
-        width: 40%;
-        background: #cb5a5e;
-      }
-      .letter-context {
-        margin-top: 10px;
-        margin-left: 5px;
-        height: 10px;
-        width: 20%;
-        background: #cb5a5e;
-      }
-      
-      .letter-stamp {
-        margin-top: 30px;
-        margin-left: 120px;
-        border-radius: 100%;
-        height: 30px;
-        width: 30px;
-        background: #cb5a5e;
-        opacity: 0.3;
-      }
-    }
+    transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);
   }
-  
+
+  .animated-mail .top-fold {
+    transition: transform 0.4s, z-index 0.2s;
+    transform: rotateX(180deg);
+    -webkit-transition: transform 0.4s, z-index 0.2s;
+    -webkit-transform: rotateX(180deg);
+    -moz-transition: transform 0.4s, z-index 0.2s;
+    -moz-transform: rotateX(180deg);
+    z-index: 0;
+  }
+
+  .animated-mail .letter {
+    height: 180px;
+  }
+
   .shadow {
-    position: absolute;
-    top: 200px;
-    left: 50%;
-    width: 400px;
-    height: 30px;
-    transition: .4s;
-    transform: translateX(-50%);
-    -webkit-transition: .4s;
-    -webkit-transform: translateX(-50%);
-    -moz-transition: .4s;
-    -moz-transform: translateX(-50%);
-    
-    border-radius: 100%;
-    background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.0), rgba(0,0,0,0.0));
+    width: 250px;
   }
-  
-    .letter-image:hover {
-      .animated-mail {
-        transform: translateY(50px);
-        -webkit-transform: translateY(50px);
-        -moz-transform: translateY(50px);
-      }
-      
-      .animated-mail .top-fold {
-        transition: transform .4s, z-index .2s;
-        transform: rotateX(180deg);
-        -webkit-transition: transform .4s, z-index .2s;
-        -webkit-transform: rotateX(180deg);
-        -moz-transition: transform .4s, z-index .2s;
-        -moz-transform: rotateX(180deg);
-        z-index: 0;
-      }
-      
-      .animated-mail .letter {
-        height: 180px;
-      }
-      
-      .shadow {
-        width: 250px;
-      }
-    }
+}
 
 // Cat SCSS
 
@@ -763,8 +699,7 @@ $color-white: #fff;
 $size: 170px; // (Fully responsive)
 
 // Cat
-.No-page
-{
+.No-page {
   background-color: black;
   padding: 10%;
   color: white;
@@ -783,11 +718,11 @@ $size: 170px; // (Fully responsive)
   height: 60%;
   width: 25%;
   background: $color-white;
-  
+
   // Ear hair
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 24%;
     height: 10%;
@@ -795,7 +730,7 @@ $size: 170px; // (Fully responsive)
     border-radius: 50%;
     background: $color-black;
   }
-  
+
   &::after {
     transform-origin: 50% 100%;
   }
@@ -805,12 +740,12 @@ $size: 170px; // (Fully responsive)
   left: -7%;
   border-radius: 70% 30% 0% 0% / 100% 100% 0% 0%;
   transform: rotate(-15deg);
-  
+
   &::before,
   &::after {
     right: 10%;
   }
-  
+
   &::after {
     transform: rotate(-45deg);
   }
@@ -820,12 +755,12 @@ $size: 170px; // (Fully responsive)
   right: -7%;
   border-radius: 30% 70% 0% 0% / 100% 100% 0% 0%;
   transform: rotate(15deg);
-  
+
   &::before,
   &::after {
     left: 10%;
   }
-  
+
   &::after {
     transform: rotate(45deg);
   }
@@ -848,10 +783,10 @@ $size: 170px; // (Fully responsive)
   width: 31%;
   background: $color-white;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  
+
   // Eyelids
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -861,19 +796,31 @@ $size: 170px; // (Fully responsive)
     background: $color-black;
     animation: blink 4s infinite ease-in;
   }
-  
+
   @keyframes blink {
-    0% { height: 0; }
-    90% { height: 0; }
-    92.5% { height: 100%; }
-    95% { height: 0; }
-    97.5% { height: 100%; }
-    100% { height: 0; }
+    0% {
+      height: 0;
+    }
+    90% {
+      height: 0;
+    }
+    92.5% {
+      height: 100%;
+    }
+    95% {
+      height: 0;
+    }
+    97.5% {
+      height: 100%;
+    }
+    100% {
+      height: 0;
+    }
   }
-  
+
   // Tips of the eyes
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 60%;
     height: 10%;
@@ -885,7 +832,7 @@ $size: 170px; // (Fully responsive)
 
 .eye--left {
   left: 0;
-  
+
   &::before {
     right: -5%;
   }
@@ -893,7 +840,7 @@ $size: 170px; // (Fully responsive)
 
 .eye--right {
   right: 0;
-  
+
   &::before {
     left: -5%;
   }
@@ -908,28 +855,42 @@ $size: 170px; // (Fully responsive)
   background: $color-black;
   border-radius: 50%;
   animation: look-around 4s infinite;
-  
+
   @keyframes look-around {
-    0% { transform: translate(0) }
-    5% { transform: translate(50%, -25%) }
-    10% { transform: translate(50%, -25%) }
-    15% { transform: translate(-100%, -25%) }
-    20% { transform: translate(-100%, -25%) }
-    25% { transform: translate(0, 0) }
-    100% { transform: translate(0, 0) }
+    0% {
+      transform: translate(0);
+    }
+    5% {
+      transform: translate(50%, -25%);
+    }
+    10% {
+      transform: translate(50%, -25%);
+    }
+    15% {
+      transform: translate(-100%, -25%);
+    }
+    20% {
+      transform: translate(-100%, -25%);
+    }
+    25% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
   }
-  
+
   .eye--left & {
     right: 30%;
   }
-  
+
   .eye--right & {
     left: 30%;
   }
-  
+
   // Glare on the pupil
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 30%;
     right: -5%;
@@ -952,73 +913,73 @@ $size: 170px; // (Fully responsive)
   border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%;
 }
 
+// Media-Screens
 
-
-@media screen and (max-width : 1200px) {
-  .Main-title
-  {
+@media screen and (max-width: 1200px) {
+  .Mobile-Ticket {
+    display: block;
+    margin: 20% 5%;
+    background: $color3;
+    border-radius: 10px;
+    border: 3px double black;
+    .MTicket {
+      display: grid;
+      grid-template-columns: 20% 60% 20%;
+    }
+    .Ticket-logo {
+      align-self: center;
+    }
+    .Ticket-Id {
+      border-left: 1px solid black;
+      h4 {
+        margin-top: 70px;
+        transform: rotate(90deg);
+      }
+    }
+  }
+  .Main-title {
     font-size: 5rem;
   }
-  .Homepage-image
-  {
-    width: 600px;
+  .Homepage-image {
+    width: 474px;
   }
-  
 }
-@media screen and (max-width:992px) {
-  
-  .main
-  {
-      .Show-Deatils-Form
-      {
-        .Dropdowns 
-        {
-          display: grid;
-          grid-template-columns: auto ;
-        }
+@media screen and (max-width: 992px) {
+  .main {
+    .Show-Deatils-Form {
+      .Dropdowns {
+        display: grid;
+        grid-template-columns: auto;
       }
-      .Headers
-      {
-        .bar 
-        {
-          width: 100px;
-        }
+    }
+    .Headers {
+      .bar {
+        width: 130px;
       }
+    }
   }
-  .Seats-page
-  {
-    .Screen
-    {
+  .Seats-page {
+    .Screen {
       width: 300px;
     }
   }
-  .Ticket-page
-  {
-    .Ticket
-    {
+  .Ticket-page {
+    .Ticket {
       display: none;
     }
   }
- 
 }
 
-@media screen and (max-width : 475px) {
-  .main 
-  {
-    .Headers
-    {
-     display: none;
+@media screen and (max-width: 475px) {
+  .main {
+    .Headers {
+      display: none;
     }
   }
-  .Homepage-image
-  {
+  .Homepage-image {
     width: 200px;
   }
-  .Main-title
-  {
+  .Main-title {
     font-size: 2rem;
   }
-
- 
-  
 }

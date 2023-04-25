@@ -2,7 +2,6 @@ import React, { useRef } from 'react'
 import { getDataFromDB } from '../../Database/Data'
 import {SetSelectedSeats} from '../../Redux/ShowData'
 import { useSelector } from 'react-redux';
-import InoxSeats from './JsonData/InoxSeats.json';
 export default function SeatComponent(props) {
    let seatID=props.seatID;
     let noOfTickets=props.noOfTickets;
@@ -76,7 +75,7 @@ export default function SeatComponent(props) {
         if(noOfTickets)
         {
         //   alert("No Seats are selected ");
-          props.setFreezeState({msg :"No Seats are Selected ",class:"color-red"})
+          props.setFreezeState({msg :"No Seats are Selected ",class:"color-red"});
         }
         else 
         {
@@ -85,22 +84,27 @@ export default function SeatComponent(props) {
         }
         
     }
+    console.log(props.freezeState.msg)
   return (
     <div>
         <div className='Seats'>
-            <button className='freeze-btn' onClick={submitSeatsData}>Freeze Now </button> &nbsp;&nbsp;
-            
-            <button className='change-btn' onClick={unBlockAllSeats}>Change Seats</button>
-            <br/>
-            
-            <br/>
+            {
+                props.freezeState.msg==='Seats are freezed '?   <></>   :
+                <>
+                    <button className='change-btn' onClick={unBlockAllSeats}>Change Seats</button>&nbsp;&nbsp;
+                    <button className='freeze-btn' onClick={submitSeatsData}>Freeze Now </button> 
+                    <br/>
+                    <br/>
+                </>
+            }
+           
         {
             !seatID
             ?
                 <><div> Theatre seats are not avialable  </div></>
             :
             seatID.map((item,index)=>(
-                index% props.noOfRows===0 && index!==0
+                (index+1)% props.noOfRows===0 
                 ? 
                 <>
 
@@ -108,12 +112,12 @@ export default function SeatComponent(props) {
                         item.Blocked ?
                         <>
                             <input type="checkbox" onClick={selectingSeats}   className='Seat-checkbox'  key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
-                            <span>{Letters[(index/props.noOfRows)-1]} </span><br/>
+                            <span>{Letters[((index+1)/10)-1]} </span><br/>
                         </>
                         :
                         <>
                             <input type="checkbox" onClick={selectingSeats}  disabled className='Seat-checkbox blocked' key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
-                            <span>{Letters[(index/props.noOfRows)-1]}</span><br/>
+                            <span>{Letters[((index+1)/10)-1]} </span><br/>
                         </>
                     }
                     
@@ -124,11 +128,11 @@ export default function SeatComponent(props) {
                   {
                         item.Blocked ?
                         <>
-                            <input type="checkbox" onClick={selectingSeats} className='Seat-checkbox'  key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
+                            <input type="checkbox" onClick={selectingSeats}  className='Seat-checkbox'  key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
                         </>
                         :
                         <>
-                            <input type="checkbox" onClick={selectingSeats} disabled className='Seat-checkbox blocked' key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
+                            <input type="checkbox" onClick={selectingSeats}  disabled className='Seat-checkbox blocked' key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
                         </>
                     }
                 </>
