@@ -1,17 +1,16 @@
-import React, { useRef } from 'react'
-import { getDataFromDB } from '../../Database/Data'
-import {SetSelectedSeats} from '../../Redux/ShowData'
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { openModal } from '../../Redux/ShowData';
+import { useDispatch } from 'react-redux';
+
 export default function SeatComponent(props) {
+    
+    const dispatch=useDispatch();
    let seatID=props.seatID;
     let noOfTickets=props.noOfTickets;
     let userSeatSelection=[];
-    // let data = getDataFromDB('Booked Seats');
-    // let Data= getDataFromDB('BS');
-    // console.log(typeof(Data))
-    // let BlockedSeats=Object.keys(Data[0].value) ;
-    // console.log(BlockedSeats);
     let Letters=['A','B',"C",'D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+   
+    // Onclicking the checkbox selecting the seats
     const selectingSeats=(e)=>
     {
                
@@ -28,13 +27,14 @@ export default function SeatComponent(props) {
                 }
                 if(noOfTickets===0)
                 {
-                    // alert("You Cannot Book More..");
+                    dispatch(openModal())
                     BlockAllSeats();
                     return;
                 }
             
     }
 
+    // Blocking all seats
     const BlockAllSeats=()=>
     {
     
@@ -44,6 +44,8 @@ export default function SeatComponent(props) {
             seats[i].disabled=true;
         }
     }
+
+    // Unblocking all Seats
     const unBlockAllSeats=()=>
     {
         const seats=document.getElementsByClassName('Seat-checkbox');
@@ -69,9 +71,10 @@ export default function SeatComponent(props) {
         noOfTickets=props.noOfTickets;
         userSeatSelection=[];
     }
+
+    // Freezing the Seats..
     const submitSeatsData=()=>
     {   
-        // BlockAllSeats();
         if(noOfTickets)
         {
         //   alert("No Seats are selected ");
@@ -84,7 +87,7 @@ export default function SeatComponent(props) {
         }
         
     }
-    console.log(props.freezeState.msg)
+
   return (
     <div>
         <div className='Seats'>

@@ -2,11 +2,16 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setBarClass } from '../Redux/ShowData';
+import { setBarClass, setSelectedCity } from '../Redux/ShowData';
 import Homepage from '../Assests/HomePage.jpg';
 import popcorn from '../Assests/popcorn.jpg';
 import theatre from '../Assests/theatre.jpg';
 import cooldrinks from '../Assests/cooldrinks.jpg';
+import HyderabadLogo from '../Assests/Hyd.png';
+import BangaloreLogo from '../Assests/bangaloreLogo.jpg';
+import ChennaiLogo from '../Assests/chennai.png';
+import KochiLogo from '../Assests/Kochi.jpg';
+import Avengers from '../Assests/Avengers.jpg';
 export default function HomePage() {
   const navigate = useNavigate();
   // const barClass=useSelector((state)=>state.ShowDetails.barClass);
@@ -19,34 +24,59 @@ export default function HomePage() {
     navigate('pick-show');
   }
 
-  const getData = async () => {
-    const data = await fetch("https://ticket-booking-system-f2d92-default-rtdb.firebaseio.com/Cities.json")
-      .then((resp) => {
-        console.log(resp);
-        return resp.body;
-      }).catch((err) => {
-        console.log("Error Occured :", err);
-      });
-    console.log(data);
+  const selectedCity = (city) => {
+    dispatch(setSelectedCity(city));
+    navigate('pick-show');
   }
-  getData();
+
+  const navigateToPage = (route) => {
+    window.scrollTo(0, 0);
+    navigate(route);
+  }
   return (
     <div>
 
-      {/* <button onClick={Pick_show}>Book Now</button> */}
-      <h1 className='Main-title' />
+      {/* <div className='Movies-carosel'>
+        <input type="radio" name="position"  />
+        <input type="radio" name="position" />
+        <input type="radio" name="position" checked/>
+        <input type="radio" name="position" />
+        <input type="radio" name="position" />
+        <main id="carousel">
+          <div class="item"><img src={Avengers} alt='Movie' /></div>
+          <div class="item"><img src={Avengers} alt='Movie' /></div>
+          <div class="item"><img src={Avengers} alt='Movie' /></div>
+          <div class="item"><img src={Avengers} alt='Movie' /></div>
+          <div class="item"><img src={Avengers} alt='Movie' /></div>
+        </main>
+      </div> */}
+      <div className='Cities-card'>
+        <div className='hyderabad city'>
+          <img src={HyderabadLogo} width='200px' height='200px' alt='City ' onClick={() => selectedCity('Hyderabad')} />
+        </div>
+        <div className='chennai city'>
+          <img src={ChennaiLogo} width='200px' height='200px' alt='City ' onClick={() => selectedCity('Chennai')} />
+        </div>
+        <div className='Bangalore city'>
+          <img src={BangaloreLogo} width='200px' height='200px' alt='City ' onClick={() => selectedCity('Bangalore')} />
+        </div>
+        <div className='Kochi city'>
+          <img src={KochiLogo} width='200px' height='200px' alt='City ' onClick={() => selectedCity('kochi')} />
+        </div>
+      </div>
+
       <div className='workflow'>
         <div>
           <h3>Pick your show </h3>
-          <img src={popcorn} alt='info' />
+          <img src={popcorn} onClick={() => navigateToPage('/popcorn')} alt='info' />
         </div>
         <div>
           <h3>Select the seats</h3>
-          <img src={cooldrinks} alt='info' />
+          <img src={cooldrinks} onClick={() => navigateToPage('/cooldrinks')} alt='info' />
         </div>
         <div>
           <h3>Get your Ticket</h3>
-          <img src={theatre} alt='info' />
+          <img src={theatre} onClick={() => navigateToPage('/theatre')} alt='info' />
         </div>
       </div>
       <img onClick={pickShow} src={Homepage} className='Homepage-image' alt='Home Page ' />

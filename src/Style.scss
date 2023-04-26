@@ -14,6 +14,21 @@ $color4: #fde2f3;
   color: red;
 }
 
+
+.Cities-card
+{
+  display: grid;
+  grid-template-columns: 35% 35%;
+  justify-content: center;
+  .city
+  {
+     img 
+     {
+      cursor: pointer;
+     }
+  }
+}
+
 //Layout Page Scss
 .main {
   .Site-Logo {
@@ -105,6 +120,14 @@ $color4: #fde2f3;
   }
 }
 
+.Seat-checkbox
+{
+  cursor: pointer;
+}
+input[type=checkbox]:disabled
+{
+  cursor: not-allowed;
+}
 // Ticket Page SCSS
 .color1 {
   color: $color1;
@@ -192,6 +215,7 @@ footer {
   color: white;
   padding: 8px 18px;
   border: 1px solid white;
+  cursor: pointer;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
@@ -243,6 +267,7 @@ footer {
   color: white;
 }
 
+// Page Titles
 .animate-charcter {
   text-transform: uppercase;
   background-image: linear-gradient(
@@ -271,250 +296,58 @@ footer {
   }
 }
 
-// Front-page SCSS
 
-.Main-title {
-  position: relative;
-  font-size: 10em;
-  letter-spacing: 10px;
-  font-family: sans-serif;
-  display: table;
-  margin: 40px auto;
+
+// Modal Styling 
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  
+}
+
+.display-none
+{
+  display: none;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border: 2px solid black;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  margin-top:-20px ;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #e80000;
+  text-decoration: none;
   cursor: pointer;
-  transition: 0.6s;
-  color: $color1;
-  border: 3px dashed $color2;
-  margin: 30px 60px;
-}
-.Main-title:before,
-.Main-title:after {
-  content: "TICKET BOOKING SYSTEM";
-  transition: 0.6s;
-}
-.Main-title:before {
-  left: 0;
-  top: 0;
-  position: absolute;
-  z-index: -1;
-  text-shadow: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px,
-    0px 0px, 0px 0px, 0px 0px;
-  -webkit-mask: repeating-linear-gradient(
-    45deg,
-    transparent 0 3px,
-    rgba(0, 0, 0, 0.5) 0 6px
-  );
-  mask: repeating-linear-gradient(
-    45deg,
-    transparent 0 3px,
-    rgba(0, 0, 0, 0.5) 0 6px
-  );
-}
-.Main-title:hover {
-  transform: translate(-10px, -10px);
-}
-.Main-title:hover:before {
-  text-shadow: 1px 1px, 2px 2px, 3px 3px, 4px 4px, 5px 5px, 6px 6px, 7px 7px,
-    8px 8px, 9px 9px, 10px 10px;
 }
 
-//   Book Now button Scss
 
-.glowing-btn {
-  position: relative;
-  background: $color1;
-  cursor: pointer;
-  padding: 0.35em 1em;
-  border: 0.15em solid var(--glow-color);
-  border-radius: 0.45em;
-  perspective: 2em;
-  font-family: "Raleway", sans-serif;
-  font-size: 1em;
-  font-weight: 700;
-  letter-spacing: 0.5em;
-  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
-  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
-  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
-    0px 0px 0.5em 0px var(--glow-color);
-  animation: border-flicker 2s linear infinite;
-}
-
-.glowing-txt {
-  float: left;
-  margin-right: -0.8em;
-  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.45em var(--glow-color);
-  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.45em var(--glow-color);
-  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
-  animation: text-flicker 3s linear infinite;
-  color: $color4;
-}
-
-.faulty-letter {
-  opacity: 0.5;
-  animation: faulty-flicker 2s linear infinite;
-}
-
-.glowing-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.7;
-  filter: blur(1em);
-  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
-  background: $color1;
-  color: $color4;
-  pointer-events: none;
-}
-
-.glowing-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
-  z-index: -1;
-  background-color: $color1;
-  box-shadow: 0 0 2em 0.2em $color1;
-  transition: opacity 100ms linear;
-}
-
-.glowing-btn:hover {
-  color: rgba(0, 0, 0, 0.8);
-  text-shadow: none;
-  animation: none;
-}
-
-.glowing-btn:hover .glowing-txt {
-  animation: none;
-}
-
-.glowing-btn:hover .faulty-letter {
-  animation: none;
-  text-shadow: none;
-  opacity: 1;
-}
-
-.glowing-btn:hover:before {
-  filter: blur(1.5em);
-  opacity: 1;
-}
-
-.glowing-btn:hover:after {
-  opacity: 1;
-}
-
-@keyframes faulty-flicker {
-  0% {
-    opacity: 0.1;
-  }
-  2% {
-    opacity: 0.1;
-  }
-  4% {
-    opacity: 0.5;
-  }
-  19% {
-    opacity: 0.5;
-  }
-  21% {
-    opacity: 0.1;
-  }
-  23% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0.5;
-  }
-  83% {
-    opacity: 0.4;
-  }
-
-  87% {
-    opacity: 1;
-  }
-}
-
-@keyframes text-flicker {
-  0% {
-    opacity: 0.1;
-  }
-
-  2% {
-    opacity: 1;
-  }
-
-  8% {
-    opacity: 0.1;
-  }
-
-  9% {
-    opacity: 1;
-  }
-
-  12% {
-    opacity: 0.1;
-  }
-  20% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0.3;
-  }
-  30% {
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 0.7;
-  }
-  72% {
-    opacity: 0.2;
-  }
-
-  77% {
-    opacity: 0.9;
-  }
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes border-flicker {
-  0% {
-    opacity: 0.1;
-  }
-  2% {
-    opacity: 1;
-  }
-  4% {
-    opacity: 0.1;
-  }
-
-  8% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .glowing-btn {
-    font-size: 1em;
-  }
-}
-
+// Success page
 .sucess-conatiner {
   border-top: 20px dashed green;
   padding: 5% 10%;
@@ -522,6 +355,7 @@ footer {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
+
 
 // Email SCSS
 
@@ -692,7 +526,8 @@ footer {
   }
 }
 
-// Cat SCSS
+
+// Cat SCSS : Nopage
 
 $color-black: #161616;
 $color-white: #fff;
@@ -937,11 +772,21 @@ $size: 170px; // (Fully responsive)
       }
     }
   }
-  .Main-title {
-    font-size: 5rem;
-  }
+  
   .Homepage-image {
     width: 474px;
+  }
+}
+@media screen and (max-width:1220px) {
+  .Ticket-page
+  {
+    .Ticket
+    {
+      .Ticket-right-part
+      {
+        display: none;
+      }
+    }
   }
 }
 @media screen and (max-width: 992px) {
@@ -979,7 +824,104 @@ $size: 170px; // (Fully responsive)
   .Homepage-image {
     width: 200px;
   }
-  .Main-title {
-    font-size: 2rem;
+  .Cities-card
+  {
+    grid-template-columns: auto;
+   
   }
+}
+
+
+// Carosel
+
+
+main#carousel {
+  grid-row: 1 / 2;
+  grid-column: 1 / 8;
+  width: 100vw;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  --items: 5;
+  --middle: 3;
+  --position: 1;
+  pointer-events: none;
+}
+
+div.item {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  background-color: coral;
+  --r: calc(var(--position) - var(--offset));
+  --abs: max(calc(var(--r) * -1), var(--r));
+  transition: all 0.25s linear;
+  transform: rotateY(calc(-10deg * var(--r)))
+    translateX(calc(-300px * var(--r)));
+  z-index: calc((var(--position) - var(--abs)));
+}
+
+div.item:nth-of-type(1) {
+  --offset: 1;
+  background-color: #90f1ef;
+}
+div.item:nth-of-type(2) {
+  --offset: 2;
+  background-color: #ff70a6;
+}
+div.item:nth-of-type(3) {
+  --offset: 3;
+  background-color: #ff9770;
+}
+div.item:nth-of-type(4) {
+  --offset: 4;
+  background-color: #ffd670;
+}
+div.item:nth-of-type(5) {
+  --offset: 5;
+  background-color: #e9ff70;
+}
+
+input:nth-of-type(1) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(1):checked ~ main#carousel {
+  --position: 1;
+}
+
+input:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(2):checked ~ main#carousel {
+  --position: 2;
+}
+
+input:nth-of-type(3) {
+  grid-column: 4 /5;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(3):checked ~ main#carousel {
+  --position: 3;
+}
+
+input:nth-of-type(4) {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(4):checked ~ main#carousel {
+  --position: 4;
+}
+
+input:nth-of-type(5) {
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(5):checked ~ main#carousel {
+  --position: 5;
 }

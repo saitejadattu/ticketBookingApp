@@ -1,19 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch ,useSelector} from 'react-redux';
 import { getDataFromDB } from '../Database/Data';
-import { setSeats, setShowData, setBarClass } from '../Redux/ShowData';
+import { setSeats, setShowData,openModal } from '../Redux/ShowData';
 import Option from '../Components/PickYourShow/Option';
 import { useAuth } from '../Components/ContextApi/Auth';
+import Modal from '../Components/Modal';
 export default function ShowDetailsForm() {
-    // let seats=0;
+
     // Additional Functions
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const auth = useAuth();
-    // const barClass=useSelector((state)=>state.ShowDetails.barClass);
+    const homeSelectCity=useSelector((state)=>state.ShowDetails.selectedCity)
 
-
+   
     const [data, setData] = useState([])
     const [cities, setCities] = useState([]);
     const [theatre, setTheatre] = useState([]);
@@ -30,6 +31,8 @@ export default function ShowDetailsForm() {
         tickets: ""
     })
 
+
+    const cityRef = useRef();
     const TheaterRef = useRef();
     const MovieRef = useRef();
     const TicketRef = useRef();
@@ -66,7 +69,7 @@ export default function ShowDetailsForm() {
 
         let check = checkShowDetails();
         if (!check) {
-            alert("Provide Correct Details");
+            dispatch(openModal());
             return;
         }
         dispatch(setShowData({ showDetails }));
@@ -79,10 +82,8 @@ export default function ShowDetailsForm() {
 
         let selectedTiming = { ...showDetails };
         selectedTiming.timings = e.target.value;
-        // flag=1;
         setFlag(1);
-        setShowDetails(selectedTiming)
-        // NextBtnRef.current.disabled = true;
+        setShowDetails(selectedTiming) 
     }
 
     // Get Number of Tickets
@@ -90,7 +91,6 @@ export default function ShowDetailsForm() {
         let selectNoOfTickets = { ...showDetails };
         selectNoOfTickets.tickets = e.target.value
         setShowDetails(selectNoOfTickets)
-        // console.log(movies)
         dispatch(setSeats({ seats: seats, NoOfTickets: selectNoOfTickets }));
         TimeRef.current.disabled = false;
     }
@@ -138,17 +138,41 @@ export default function ShowDetailsForm() {
         setTheatre(Object.keys(foundTheatreDetails.value));
     }
 
+    const setHomeCity= (city)=>
+    {
+       console.log(city);
+       let selectedcity = { ...showDetails };
+       selectedcity.city =city;
+       setShowDetails(selectedcity)
+        TheaterRef.current.disabled = false;
+        const foundTheatreDetails = data.find(obj => {
+            return obj.key === selectedcity.city;
+        });
+        setSelectedCity(Object.values(foundTheatreDetails)[1])
+        setTheatre(Object.keys(foundTheatreDetails.value));
+    }
+
     // Getting Data from DB and setting into the state
     useEffect(() => {
         if (data.length) {
+            
+            if( homeSelectCity!=='None')
+            {
+                // console.log(homeSelectCity);
+
+                setHomeCity(homeSelectCity);
+            }
             setCities(data.map((city) => { return city.key }))
+             
         }
         else {
             setData(getDataFromDB("Cities"))
         }
-    }, [data])
+    }, [data]);
+
     return (
         <>
+            <Modal title="Dear User," body="Please provide correct details.." />
             <form className='show-form' >
                 {/* City Dropdown Feilds */}
                 <div className='Selection-of-Cities Dropdowns'>
@@ -157,9 +181,9 @@ export default function ShowDetailsForm() {
                         City :
                     </label>
 
-                    <select name="city" id="city" onChange={getCity}>
+                    <select ref={cityRef}  name="city" id="city" onChange={getCity}>
 
-                        <Option Data={cities} type='city' />
+                        <Option Data={cities} type='city' selectedHomecity={homeSelectCity} />
 
                     </select>
                 </div>
@@ -168,7 +192,7 @@ export default function ShowDetailsForm() {
                 <div className='Dropdowns'>
 
                     <label>
-                        Theater :
+                        Theatre :
                     </label>
 
                     <select name="Theater" ref={TheaterRef} onChange={getTheatre} disabled id="Theater">

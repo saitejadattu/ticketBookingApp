@@ -7,6 +7,7 @@ import { setSelectedSeats } from '../../Redux/ShowData'
 import { useDispatch } from 'react-redux';
 import { setBarClass } from '../../Redux/ShowData';
 import { useAuth } from '../ContextApi/Auth';
+import Modal from '../Modal';
 export default function Seats() {
 
   const navigate = useNavigate();
@@ -63,6 +64,7 @@ export default function Seats() {
     <div className='Seats-page'>
   
       <h3 className='animate-charcter'>Select Seats</h3> <br />
+      <Modal  title='Dear User,' body='Number of Tickets are over..'/>
       <div className={freezeState.class}>{freezeState.msg}  </div>
       <div className='seats'>
         <SeatComponent seatID={seatID} freezeState={freezeState} blockedSeats={blockedSeats} setUserSeatSelection={setUserSeatSelection} setFreezeState={setFreezeState} noOfSeats={noOfSeats} noOfTickets={noOfTickets} noOfRows={noofRows} />

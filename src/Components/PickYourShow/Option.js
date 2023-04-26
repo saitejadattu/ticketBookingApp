@@ -7,9 +7,15 @@ export default function Option(props) {
       {
         props.Data?.map((item, index) =>
         (
-
-          // <option value={item}>{item}</option>
-          <option value={item} key={index}>{item}</option>
+          <> 
+          {
+            props.type ==='city' && item === props.selectedHomecity 
+            ? 
+              <option  value={item} selected key={index}>{item}</option>
+            :
+            <option  value={item} key={index}>{item}</option>
+          }
+          </>
         ))
 
       }

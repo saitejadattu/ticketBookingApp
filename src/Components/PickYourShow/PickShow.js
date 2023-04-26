@@ -10,14 +10,13 @@ export default function PickShow() {
   }, []);
   return (
     <div className='Show-picking-page'>
+
       <h3 className='animate-charcter'>Pick Your Show</h3>
+
       <div className='Show-Deatils-Form'>
         <ShowDetailsForm />
       </div>
-      {/* <div>
-      <button onClick={NextPage}>Prev</button>
-      <button onClick={NextPage}>Next</button>
-    </div> */}
+      
     </div>
   )
 }

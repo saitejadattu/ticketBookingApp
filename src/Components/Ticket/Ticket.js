@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { setBarClass } from '../../Redux/ShowData';
 import TicketLogo from '../../Assests/TicketLogo.png';
 export default function Ticket() {
-  // const ShowDetailsData = useSelector((state) => state.ShowDetails.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -48,8 +47,7 @@ export default function Ticket() {
     <div className='Ticket-page'>
       <h3 className='animate-charcter'>Ticket</h3> <br />
 
-      {/* <button >Confirm</button> */}
-      <button className='glowing-btn' onClick={writeUserData}><span className='glowing-txt'>BOOK <span > NOW</span> <span className='faulty-letter'>...</span></span></button>
+      <button onClick={writeUserData} className='btn'>Confirm Booking</button>
       <div className='Ticket'>
 
         <TicketLeftPart ticketId={ticketId} selectedSeatsStore={selectedSeatsStore} />
