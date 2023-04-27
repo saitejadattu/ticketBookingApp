@@ -9,6 +9,10 @@ $color4: #fde2f3;
 .Mobile-Ticket {
   display: none;
 }
+.Mobile-Menu
+{
+  display: none;
+}
 
 .red-color {
   color: red;
@@ -816,6 +820,15 @@ $size: 170px; // (Fully responsive)
 }
 
 @media screen and (max-width: 475px) {
+  .Mobile-Menu{
+    display: block;
+    img 
+    {
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+    }
+  }
   .main {
     .Headers {
       display: none;
@@ -829,9 +842,40 @@ $size: 170px; // (Fully responsive)
     grid-template-columns: auto;
    
   }
+  .letter-image
+  {
+    display: none;
+  }
+  .sucess-conatiner
+  {
+    margin: 20%;
+  }
+  .No-page
+  {
+    margin: 11%;
+  }
+  .MTicket
+  {
+    .Ticket-Id
+    {
+      h4
+      {
+        margin-top: 50px;
+      }
+    }
+  }
 }
 
 
+@media screen and (max-width : 330px) {
+  .main
+  {
+    .Show-Deatils-Form
+    {
+      margin: 2% 10%;
+    }
+  }
+}
 // Carosel
 
 

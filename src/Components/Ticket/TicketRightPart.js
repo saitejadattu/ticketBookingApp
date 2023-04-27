@@ -16,7 +16,7 @@ export default function TicketRightPart(props) {
                     {
                         selectedSeatsStore.map((item, index) => (
                             <>
-                                <span key={index} >{item}</span> &nbsp;
+                                <span key={index} > {item} </span> 
                             </>
                         ))
                     }

@@ -8,21 +8,25 @@ export default function Modal(props) {
     const modal = useSelector((state) => state.ShowDetails.modal);
 
     // Closing the modal block 
-   
+
     const close = () => {
         dispatch(closeModal());
     }
     return (
+
         <div className={modal.class}>
+            
             <div className="modal-content">
+
                 <div className='modal-title'>
                     <span>{props.title}</span>
                     <span className="close" onClick={close}>&times;</span>
                 </div>
+
                 <div className='modal-body'>
                     <p>{props.body}</p>
                 </div>
-                
+
             </div>
 
         </div>

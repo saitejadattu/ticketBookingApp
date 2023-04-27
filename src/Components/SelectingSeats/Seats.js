@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
@@ -21,7 +22,7 @@ export default function Seats() {
   const noOfSeats = theatre.seats;
   const noofRows = 10;
   const noOfTickets = theatre.NoOfTickets.tickets;
-  let blockedSeats = ['A1', 'A2', 'B1', 'B2', 'B3', 'B4', 'B5', 'C5', 'C8', 'C0', 'F0', 'F5', 'F3', 'F9'];
+  let blockedSeats = ['A1', 'A2', 'B1', 'B2', 'B3', 'B4', 'B5', 'C5', 'C8', 'C0', 'F0', 'F5', 'F3', 'F9','D1','D2','D4','D5','D7','D8','D0'];
   let seatID = [];
   
   // For navigating to next page

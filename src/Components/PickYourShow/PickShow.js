@@ -16,7 +16,7 @@ export default function PickShow() {
       <div className='Show-Deatils-Form'>
         <ShowDetailsForm />
       </div>
-      
+
     </div>
   )
 }

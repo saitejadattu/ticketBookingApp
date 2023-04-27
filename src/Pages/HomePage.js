@@ -12,6 +12,7 @@ import BangaloreLogo from '../Assests/bangaloreLogo.jpg';
 import ChennaiLogo from '../Assests/chennai.png';
 import KochiLogo from '../Assests/Kochi.jpg';
 import Avengers from '../Assests/Avengers.jpg';
+
 export default function HomePage() {
   const navigate = useNavigate();
   // const barClass=useSelector((state)=>state.ShowDetails.barClass);
@@ -34,9 +35,10 @@ export default function HomePage() {
     navigate(route);
   }
   return (
-    <div>
+    <div className='Home-page'>
 
-      {/* <div className='Movies-carosel'>
+      {/* 
+      <div className='Movies-carosel'>
         <input type="radio" name="position"  />
         <input type="radio" name="position" />
         <input type="radio" name="position" checked/>
@@ -49,7 +51,8 @@ export default function HomePage() {
           <div class="item"><img src={Avengers} alt='Movie' /></div>
           <div class="item"><img src={Avengers} alt='Movie' /></div>
         </main>
-      </div> */}
+      </div> 
+      */}
       <div className='Cities-card'>
         <div className='hyderabad city'>
           <img src={HyderabadLogo} width='200px' height='200px' alt='City ' onClick={() => selectedCity('Hyderabad')} />

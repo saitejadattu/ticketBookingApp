@@ -18,7 +18,7 @@ export default function Navbar() {
                     <div>
                         <Link to='pick-show'  >Pick Your Show</Link>
                     </div>
-                    
+
                     <Link to='pick-show' >
                         <div className={barClass.bar1} >
                         </div>
@@ -47,7 +47,9 @@ export default function Navbar() {
                 </div>
             </div>
             <div className='Mobile-Menu'>
-
+                <Link to='/'>
+                    <img src={Logo} alt='Site Logo' />
+                </Link>
             </div>
         </>
     )
