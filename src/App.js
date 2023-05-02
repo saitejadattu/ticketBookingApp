@@ -11,6 +11,7 @@ import Success from './Pages/Success';
 import { AuthProvider } from './Components/ContextApi/Auth';
 import { RequireSeatsAuth } from './Components/ContextApi/RequireSeatsAuth';
 import { RequireTicketAuth } from './Components/ContextApi/RequireTicketAuth';
+import Theatre from './Pages/Theatre';
 function App() {
   return (
     <div className='App'>
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<HomePage />} />
+              <Route path='theatre' element={<Theatre />} />
               <Route path='pick-show' element={<PickShow />} />
               <Route path="seats" element={<RequireSeatsAuth><Seats /></RequireSeatsAuth>} />
               <Route path="Ticket" element={<RequireTicketAuth><Ticket /></RequireTicketAuth>} />

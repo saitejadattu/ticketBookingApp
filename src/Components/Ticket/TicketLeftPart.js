@@ -10,14 +10,14 @@ export default function TicketLeftPart(props) {
             </div>
             <div className='Ticket-Details'>
 
-                <h2 className='Ticket-Background-color'><span class="material-symbols-outlined">theaters</span><span>Cinema Ticket </span><span class="material-symbols-outlined">theaters</span> </h2>
+                <h2 className='Ticket-Background-color'><span className="material-symbols-outlined">theaters</span><span>Cinema Ticket </span><span className="material-symbols-outlined">theaters</span> </h2>
                 <div>
                     <p><b>THEATRE :</b>{showDetailsData.theatre} #{showDetailsData.city} </p>
                     <p><b>TIME :</b> {showDetailsData.timings}</p>
                     <p><b>PRICE :</b>{showDetailsData.tickets * 100}</p>
                 </div>
                 <h2 className='Ticket-color'>MOVIE 2D : {showDetailsData.movie.toUpperCase()}</h2>
-                <p> <b>NO : </b>#TN{props.ticketId}</p>
+                <p> <b>TNO : </b>#TN{props.ticketId}</p>
             </div>
         </div>
     )

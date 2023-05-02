@@ -3,7 +3,7 @@ import React from 'react'
 export default function Option(props) {
   return (
     <>
-      <option value="None">None</option>
+      <option disabled selected hidden value="None">None</option>
       {
         props.Data?.map((item, index) =>
         (

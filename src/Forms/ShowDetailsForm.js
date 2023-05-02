@@ -14,13 +14,13 @@ export default function ShowDetailsForm() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const auth = useAuth();
-    const initialState = { 
+    const initialState = {
         city: [],
-        selectedCity:[],
-        theatre: [], 
-        movie: [], 
-        timings: [], 
-        seats: 0 
+        selectedCity: [],
+        theatre: [],
+        movie: [],
+        timings: [],
+        seats: 0
     };
     const homeSelectCity = useSelector((state) => state.ShowDetails.selectedCity)
 
@@ -43,10 +43,12 @@ export default function ShowDetailsForm() {
         }
     }
 
-    
+
     const [showForm, dispatcher] = useReducer(reducer, initialState);
     const [data, setData] = useState([])
     const [flag, setFlag] = useState(0);
+    const [alertMsg, setAlertMsg] = useState({ title: 'Dear User', body: 'Please provide correct details...' });
+
     const [showDetails, setShowDetails] = useState({
         city: "",
         theatre: "",
@@ -89,13 +91,14 @@ export default function ShowDetailsForm() {
             return true;
         }
     }
-    
+
     // Moving To Next Page
     const NextPage = () => {
 
         let check = checkShowDetails();
         if (!check) {
             dispatch(openModal());
+            setAlertMsg({ title: "Dear User", body: "Please Provide Correct Details.." });
             return;
         }
         dispatch(setShowData({ showDetails }));
@@ -119,6 +122,8 @@ export default function ShowDetailsForm() {
         setShowDetails(selectNoOfTickets)
         dispatch(setSeats({ seats: showForm.seats, NoOfTickets: selectNoOfTickets }));
         TimeRef.current.disabled = false;
+        TimeRef.current.value = 'None';
+        setFlag(0);
     }
 
     // Get the Selected Movie
@@ -127,7 +132,10 @@ export default function ShowDetailsForm() {
         selectedMovie.movie = e.target.value
         setShowDetails(selectedMovie)
         TicketRef.current.disabled = false;
-
+        TicketRef.current.value = 'None';
+        TimeRef.current.value = 'None';
+        TimeRef.current.disabled = true;
+        setFlag(0);
     }
 
     // To Get Theatre Infromation 
@@ -135,13 +143,26 @@ export default function ShowDetailsForm() {
         let selectedTheater = { ...showDetails };
         selectedTheater.theatre = e.target.value;
         if (e.target.value === 'None') {
-            alert("Please proivide Theatre ..");
+            dispatch(openModal());
+            setAlertMsg({ title: "Dear User", body: "Select Valid Theatre.." });
+            MovieRef.current.disabled = true;
+            MovieRef.current.value = 'None';
+            TicketRef.current.value = 'None';
+            TimeRef.current.value = 'None';
+            TicketRef.current.disabled = true
+            TimeRef.current.disabled = true;
+            setFlag(0);
             return;
         }
+
         setShowDetails(selectedTheater);
         MovieRef.current.disabled = false;
+        MovieRef.current.value = 'None';
+        TicketRef.current.value = 'None';
+        TimeRef.current.value = 'None';
         TicketRef.current.disabled = true
         TimeRef.current.disabled = true;
+        setFlag(0);
         dispatcher({ type: "movie", payload: Object.keys(showForm.selectedCity[selectedTheater.theatre].Movies) });
         dispatcher({ type: "timings", payload: Object.keys(showForm.selectedCity[selectedTheater.theatre].Timings) })
         const array = Object.values(showForm.selectedCity[selectedTheater.theatre]);
@@ -153,16 +174,34 @@ export default function ShowDetailsForm() {
         let selectedcity = { ...showDetails };
         selectedcity.city = e.target.value;
         if (e.target.value === 'None') {
-            alert("Please Select a City");
+            dispatch(openModal());
+            setAlertMsg({ title: "Dear User", body: "Select Valid City.." });
+            TheaterRef.current.disabled = true;
+            selectedcity.city = 'None';
+            TheaterRef.current.value = 'None';
+            MovieRef.current.value = 'None';
+            MovieRef.current.disabled = true;
+            TicketRef.current.value = 'None';
+            TicketRef.current.disabled = true;
+            TimeRef.current.value = 'None';
+            TimeRef.current.disabled = true;
+            setFlag(0);
             return;
         }
         setShowDetails(selectedcity)
         TheaterRef.current.disabled = false;
+        TheaterRef.current.value = 'None';
+        MovieRef.current.value = 'None';
+        MovieRef.current.disabled = true;
+        TicketRef.current.value = 'None';
+        TicketRef.current.disabled = true;
+        TimeRef.current.value = 'None';
+        TimeRef.current.disabled = true;
         const foundTheatreDetails = data.find(obj => {
             return obj.key === selectedcity.city;
         });
-
-        dispatcher({type:"selectedCity",payload: Object.values(foundTheatreDetails)[1]})
+        setFlag(0);
+        dispatcher({ type: "selectedCity", payload: Object.values(foundTheatreDetails)[1] })
         // setSelectedCity(Object.values(foundTheatreDetails)[1])
         dispatcher({ type: "theatre", payload: Object.keys(foundTheatreDetails.value) });
 
@@ -177,7 +216,7 @@ export default function ShowDetailsForm() {
         const foundTheatreDetails = data.find(obj => {
             return obj.key === selectedcity.city;
         });
-        dispatcher({type:"selectedCity",payload: Object.values(foundTheatreDetails)[1]})
+        dispatcher({ type: "selectedCity", payload: Object.values(foundTheatreDetails)[1] })
         dispatcher({ type: "theatre", payload: Object.keys(foundTheatreDetails.value) });
     }
 
@@ -195,9 +234,16 @@ export default function ShowDetailsForm() {
     }, [data]);
 
     return (
+        
         <>
 
-            <Modal title="Dear User," body="Please provide correct details.." />
+            {
+                data.length!== 0
+                ?  <> </>
+                : 
+                <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            }
+            <Modal title={alertMsg.title} body={alertMsg.body} />
             <form className='show-form' >
                 {/* City Dropdown Feilds */}
                 <div className='Selection-of-Cities Dropdowns'>
@@ -248,7 +294,7 @@ export default function ShowDetailsForm() {
                     </label>
 
                     <select name="Ticket" ref={TicketRef} onChange={getNoOfTickets} disabled id="Ticket">
-                        <option value="None">None</option>
+                        <option value="None" selected disabled hidden>None</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -268,12 +314,6 @@ export default function ShowDetailsForm() {
 
                     </select>
                 </div>
-
-                {/* Next Button  */}
-                {/* <div>
-
-                    <input type='submit' className='btn'  disabled onClick={NextPage} value='Next' placeholder='' />
-                </div> */}
 
             </form>
             {/* Next Button  */}

@@ -23,6 +23,7 @@ export default function Seats() {
   const noofRows = 10;
   const noOfTickets = theatre.NoOfTickets.tickets;
   let blockedSeats = ['A1', 'A2', 'B1', 'B2', 'B3', 'B4', 'B5', 'C5', 'C8', 'C0', 'F0', 'F5', 'F3', 'F9','D1','D2','D4','D5','D7','D8','D0'];
+  blockedSeats.sort();
   let seatID = [];
   
   // For navigating to next page
@@ -43,7 +44,6 @@ export default function Seats() {
     for (let i = 0; i < InoxSeats.length; i++) {
       let Blocked = 1;
       for (let j = 0; j < blockedSeats.length; j++) {
-        // console.log(props.SeatswithId[i].seatId);
         if (InoxSeats[i].seatId === blockedSeats[j]) {
           Blocked = 0;
           break;

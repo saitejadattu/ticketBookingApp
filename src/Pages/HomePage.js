@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/heading-has-content */
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +12,7 @@ import HyderabadLogo from '../Assests/Hyd.png';
 import BangaloreLogo from '../Assests/bangaloreLogo.jpg';
 import ChennaiLogo from '../Assests/chennai.png';
 import KochiLogo from '../Assests/Kochi.jpg';
-import Avengers from '../Assests/Avengers.jpg';
+// import Avengers from '../Assests/Avengers.jpg';
 
 export default function HomePage() {
   const navigate = useNavigate();

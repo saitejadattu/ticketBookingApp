@@ -5,11 +5,11 @@ import { useDispatch } from 'react-redux';
 export default function SeatComponent(props) {
     
     const dispatch=useDispatch();
-   let seatID=props.seatID;
+    let seatID=props.seatID;
     let noOfTickets=props.noOfTickets;
+    let Tickets=noOfTickets;
     let userSeatSelection=[];
     let Letters=['A','B',"C",'D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-   
     // Onclicking the checkbox selecting the seats
     const selectingSeats=(e)=>
     {
@@ -77,8 +77,20 @@ export default function SeatComponent(props) {
     {   
         if(noOfTickets)
         {
-        //   alert("No Seats are selected ");
-          props.setFreezeState({msg :"No Seats are Selected ",class:"color-red"});
+
+            for(let i=0;i<userSeatSelection.length;i++)
+            {
+                let seat=document.getElementById(userSeatSelection[i]);
+                seat.checked=false;
+            }
+            if(Tickets===noOfTickets)
+            {
+                props.setFreezeState({msg :`Please Select the Seats`,class:"color-red"});
+                return
+            }
+            props.setFreezeState({msg :`Missed selecting ${noOfTickets} ticket out of ${Tickets}`,class:"color-red"});
+
+
         }
         else 
         {
@@ -95,7 +107,7 @@ export default function SeatComponent(props) {
                 props.freezeState.msg==='Seats are freezed '?   <></>   :
                 <>
                     <button className='change-btn' onClick={unBlockAllSeats}>Change Seats</button>&nbsp;&nbsp;
-                    <button className='freeze-btn' onClick={submitSeatsData}>Freeze Now </button> 
+                    <button className='freeze-btn' onClick={submitSeatsData}>Freeze Now</button> 
                     <br/>
                     <br/>
                 </>
@@ -109,36 +121,36 @@ export default function SeatComponent(props) {
             seatID.map((item,index)=>(
                 (index+1)% props.noOfRows===0 
                 ? 
-                <>
+                <span key={index}>
 
                     {
                         item.Blocked ?
                         <>
-                            <input type="checkbox" onClick={selectingSeats}   className='Seat-checkbox'  key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
+                            <input type="checkbox" onClick={(e)=>selectingSeats(e,item.seatPrice)}   className='Seat-checkbox'  key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
                             <span>{Letters[((index+1)/10)-1]} </span><br/>
                         </>
                         :
                         <>
-                            <input type="checkbox" onClick={selectingSeats}  disabled className='Seat-checkbox blocked' key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
+                            <input type="checkbox"  onClick={(e)=>selectingSeats(e,item.seatPrice)}   disabled className='Seat-checkbox blocked' key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
                             <span>{Letters[((index+1)/10)-1]} </span><br/>
                         </>
                     }
                     
-                </>
+                </span>
                 
                 :
-                <>
+                <span key={index}>
                   {
                         item.Blocked ?
                         <>
-                            <input type="checkbox" onClick={selectingSeats}  className='Seat-checkbox'  key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
+                            <input type="checkbox" onClick={(e)=>selectingSeats(e,item.seatPrice)}   className='Seat-checkbox'  key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
                         </>
                         :
                         <>
-                            <input type="checkbox" onClick={selectingSeats}  disabled className='Seat-checkbox blocked' key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
+                            <input type="checkbox"  onClick={(e)=>selectingSeats(e,item.seatPrice)}   disabled className='Seat-checkbox blocked' key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
                         </>
                     }
-                </>
+                </span>
             ))
         }
         <p>Balacony</p>

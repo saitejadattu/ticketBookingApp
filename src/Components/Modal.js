@@ -19,12 +19,15 @@ export default function Modal(props) {
             <div className="modal-content">
 
                 <div className='modal-title'>
-                    <span>{props.title}</span>
+                    <span className='title-text'>{props.title}</span>
                     <span className="close" onClick={close}>&times;</span>
                 </div>
 
                 <div className='modal-body'>
                     <p>{props.body}</p>
+                </div>
+                <div>
+                    <button className='btn' onClick={close}>OK</button>
                 </div>
 
             </div>

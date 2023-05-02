@@ -29,7 +29,7 @@ export default function Success() {
             click
           </button>
         </p>
-        <div class="letter-image">
+        <div className="letter-image">
           <div className="animated-mail">
             <div className="back-fold"></div>
             <div className="letter">
