@@ -5,7 +5,7 @@ export default function TicketRightPart(props) {
     const TodayTime = props.TodayTime;
     const TodayDate = props.TodayDate;
     const selectedSeatsStore = props.selectedSeatsStore;
-    const showDetailsData = useSelector((state) => state.ShowDetails.show).showDetails;
+    const showDetailsData = useSelector((state) => state.ShowDetails.show);
     return (
         <div className='Ticket-right-part'>
             <div>
@@ -15,9 +15,9 @@ export default function TicketRightPart(props) {
                 <p>Seats :  &nbsp;
                     {
                         selectedSeatsStore.map((item, index) => (
-                            <>
+                           
                                 <span key={index} > {item} </span> 
-                            </>
+                            
                         ))
                     }
                 </p>

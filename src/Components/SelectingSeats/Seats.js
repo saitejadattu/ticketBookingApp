@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { setBarClass } from '../../Redux/ShowData';
 import { useAuth } from '../ContextApi/Auth';
 import Modal from '../Modal';
+import ForumSeats from './JsonData/ForumSeats.json';
 export default function Seats() {
 
   const navigate = useNavigate();
@@ -21,7 +22,8 @@ export default function Seats() {
 
   const noOfSeats = theatre.seats;
   const noofRows = 10;
-  const noOfTickets = theatre.NoOfTickets.tickets;
+  // const noOfTickets = theatre.NoOfTickets.tickets;
+  const noOfTickets= theatre.NoOfTickets;
   let blockedSeats = ['A1', 'A2', 'B1', 'B2', 'B3', 'B4', 'B5', 'C5', 'C8', 'C0', 'F0', 'F5', 'F3', 'F9','D1','D2','D4','D5','D7','D8','D0'];
   blockedSeats.sort();
   let seatID = [];
@@ -58,7 +60,7 @@ export default function Seats() {
 
   useEffect(() => {
     dispatch(setBarClass({ bar1: "bar ", bar2: "bar bar-color", bar3: "bar" }));
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -66,7 +68,7 @@ export default function Seats() {
   
       <h3 className='animate-charcter'>Select Seats</h3> <br />
       <Modal  title='Dear User,' body='Number of Tickets are over..'/>
-      <div className={freezeState.class}>{freezeState.msg}  </div>
+      <div className={freezeState.class} data-testid='freezeMsg'>{freezeState.msg}  </div>
       <div className='seats'>
         <SeatComponent seatID={seatID} freezeState={freezeState} blockedSeats={blockedSeats} setUserSeatSelection={setUserSeatSelection} setFreezeState={setFreezeState} noOfSeats={noOfSeats} noOfTickets={noOfTickets} noOfRows={noofRows} />
       </div>

@@ -8,6 +8,7 @@ import { setSeats, setShowData, openModal } from '../Redux/ShowData';
 import Option from '../Components/PickYourShow/Option';
 import { useAuth } from '../Components/ContextApi/Auth';
 import Modal from '../Components/Modal';
+import databaseData from '../Components/PickYourShow/json/databaseData.json'
 export default function ShowDetailsForm() {
 
     // Additional Functions
@@ -53,8 +54,8 @@ export default function ShowDetailsForm() {
         city: "",
         theatre: "",
         movie: "",
-        timings: "",
-        tickets: ""
+        tickets: "",
+        timings: ""
     })
 
 
@@ -120,7 +121,7 @@ export default function ShowDetailsForm() {
         let selectNoOfTickets = { ...showDetails };
         selectNoOfTickets.tickets = e.target.value
         setShowDetails(selectNoOfTickets)
-        dispatch(setSeats({ seats: showForm.seats, NoOfTickets: selectNoOfTickets }));
+        dispatch(setSeats({ seats: showForm.seats, NoOfTickets: selectNoOfTickets.tickets }));
         TimeRef.current.disabled = false;
         TimeRef.current.value = 'None';
         setFlag(0);
@@ -230,8 +231,11 @@ export default function ShowDetailsForm() {
         }
         else {
             setData(getDataFromDB("Cities"));
+            // setData(databaseData);
         }
     }, [data]);
+
+   
 
     return (
         
@@ -241,14 +245,14 @@ export default function ShowDetailsForm() {
                 data.length!== 0
                 ?  <> </>
                 : 
-                <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             }
             <Modal title={alertMsg.title} body={alertMsg.body} />
             <form className='show-form' >
                 {/* City Dropdown Feilds */}
                 <div className='Selection-of-Cities Dropdowns'>
 
-                    <label>
+                    <label title='city'>
                         City :
                     </label>
 
@@ -262,7 +266,7 @@ export default function ShowDetailsForm() {
                 {/* Theatre Dropdown Feilds */}
                 <div className='Dropdowns'>
 
-                    <label>
+                    <label title='theatre'>
                         Theatre :
                     </label>
 
@@ -276,7 +280,7 @@ export default function ShowDetailsForm() {
                 {/* Movies Dropdown Feilds */}
                 <div className='Dropdowns'>
 
-                    <label>
+                    <label title='movie'>
                         Movie :
                     </label>
 
@@ -289,7 +293,7 @@ export default function ShowDetailsForm() {
                 {/* Tickets Dropdown Feilds */}
                 <div className='Dropdowns'>
 
-                    <label>
+                    <label title='ticket'>
                         Tickets :
                     </label>
 
@@ -305,7 +309,7 @@ export default function ShowDetailsForm() {
                 {/* Timings Dropdown Feilds  */}
                 <div className='Dropdowns'>
 
-                    <label>
+                    <label title='timings'>
                         Time :
                     </label>
                     <select name="Time" ref={TimeRef} onChange={getShowTime} disabled id="Time">

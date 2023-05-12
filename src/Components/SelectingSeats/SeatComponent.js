@@ -96,6 +96,7 @@ export default function SeatComponent(props) {
         {
             props.setFreezeState({msg :"Seats are freezed ",class:"color-green"})
             props.setUserSeatSelection(userSeatSelection);
+            BlockAllSeats();
         }
         
     }
@@ -107,6 +108,7 @@ export default function SeatComponent(props) {
                 props.freezeState.msg==='Seats are freezed '?   <></>   :
                 <>
                     <button className='change-btn' onClick={unBlockAllSeats}>Change Seats</button>&nbsp;&nbsp;
+                     <h2 data-testid="ticket">Tickets :{noOfTickets}</h2> 
                     <button className='freeze-btn' onClick={submitSeatsData}>Freeze Now</button> 
                     <br/>
                     <br/>
@@ -126,13 +128,13 @@ export default function SeatComponent(props) {
                     {
                         item.Blocked ?
                         <>
-                            <input type="checkbox" onClick={(e)=>selectingSeats(e,item.seatPrice)}   className='Seat-checkbox'  key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
-                            <span>{Letters[((index+1)/10)-1]} </span><br/>
+                            <input type="checkbox"  placeholder='enabled seats' onClick={(e)=>selectingSeats(e,item.seatPrice)}   className='Seat-checkbox'  key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
+                            <span>{Letters[((index+1)/props.noOfRows)-1]} </span><br/>
                         </>
                         :
                         <>
-                            <input type="checkbox"  onClick={(e)=>selectingSeats(e,item.seatPrice)}   disabled className='Seat-checkbox blocked' key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
-                            <span>{Letters[((index+1)/10)-1]} </span><br/>
+                            <input type="checkbox" placeholder='Blocked seats' onClick={(e)=>selectingSeats(e,item.seatPrice)}   disabled className='Seat-checkbox blocked' key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
+                            <>{Letters[((index+1)/props.noOfRows)-1]} </><br/>
                         </>
                     }
                     
@@ -143,11 +145,11 @@ export default function SeatComponent(props) {
                   {
                         item.Blocked ?
                         <>
-                            <input type="checkbox" onClick={(e)=>selectingSeats(e,item.seatPrice)}   className='Seat-checkbox'  key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
+                            <input type="checkbox" placeholder='enabled seats' onClick={(e)=>selectingSeats(e,item.seatPrice)}   className='Seat-checkbox'  key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
                         </>
                         :
                         <>
-                            <input type="checkbox"  onClick={(e)=>selectingSeats(e,item.seatPrice)}   disabled className='Seat-checkbox blocked' key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
+                            <input type="checkbox"  placeholder='Blocked seats' onClick={(e)=>selectingSeats(e,item.seatPrice)}   disabled className='Seat-checkbox blocked' key={index} id={item.SeatNo} value={item.SeatNo} /> &nbsp; 
                         </>
                     }
                 </span>
@@ -162,44 +164,5 @@ export default function SeatComponent(props) {
 }
 
 
-// const seats=()=>
-// {
-//     let Blocked=1;
-//     for(let i=0,j=1,k=0;i<props.NoOfSeats;i++)
-//     {
-//         if(j%10===0 )
-//         {
-//             j=1;
-//             k++;
-//             Blocked=1;
-//             let SeatNo=Letters[k]+''+0;
-//             for(let x=0;x<BlockedSeats.length;x++)
-//             {
-//                 if(SeatNo===BlockedSeats[x])
-//                 {
-//                     Blocked=0;
-//                 }
-//             }
-//             SeatID.push({SeatNo :SeatNo,Blocked:Blocked});
-           
-//         }
-//         else
-//         {
-//             let SeatNo=Letters[k]+''+j;
-//             Blocked=1;
-//             for(let x=0;x<BlockedSeats.length;x++)
-//             {
-//                 if(SeatNo===BlockedSeats[x])
-//                 {
-//                     Blocked=0;
-//                 }
-//             }
-//             SeatID.push({SeatNo:SeatNo,Blocked:Blocked});
-//             j++;
-//         }
-            
-       
-//     }
-// }
 
 

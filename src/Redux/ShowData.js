@@ -4,17 +4,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const DetailsSlice = createSlice({
     name: 'ShowDetails',
     initialState: { 
-        show: { city: "Mars", theatre: "PPP", movie: "Iron Man 4", tickets: 4, timings: "10:00am" }, 
-        theatre: { seats: 0, NoOfTickets: 0 }, 
+        show: { city: "Mars", theatre: "PPP", movie: "Iron Man", tickets: 4, timings: "10:00am" }, 
+        theatre: { seats: 200, NoOfTickets: 3 }, 
         selectedSeats: ['A1', 'A2'], 
         barClass: { bar1: "bar", bar2: "bar", bar3: "bar" },
         modal:{class:"display-none"},
         selectedCity:"None",
      },
     reducers: {
-
         setShowData: (state, action) => {
-            state.show = action.payload;
+            state.show = action.payload.showDetails;
         }
         ,
         setSeats: (state, action) => {

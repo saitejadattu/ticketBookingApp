@@ -2,7 +2,7 @@ import React from 'react'
 import barcode from '../../Assests/barcode.png';
 import { useSelector } from 'react-redux';
 export default function TicketLeftPart(props) {
-    const showDetailsData = useSelector((state) => state.ShowDetails.show).showDetails;
+    const showDetailsData = useSelector((state) => state.ShowDetails.show);
     return (
         <div className='Ticket-left-part'>
             <div className='left-QR'>
@@ -16,7 +16,7 @@ export default function TicketLeftPart(props) {
                     <p><b>TIME :</b> {showDetailsData.timings}</p>
                     <p><b>PRICE :</b>{showDetailsData.tickets * 100}</p>
                 </div>
-                <h2 className='Ticket-color'>MOVIE 2D : {showDetailsData.movie.toUpperCase()}</h2>
+                <h2 className='Ticket-color'>MOVIE 2D : {showDetailsData.movie}</h2>
                 <p> <b>TNO : </b>#TN{props.ticketId}</p>
             </div>
         </div>

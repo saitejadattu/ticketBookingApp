@@ -18,7 +18,7 @@ export default function Ticket() {
   const current = new Date();
   const todayTime = current.toLocaleTimeString();
   const selectedSeatsStore = useSelector((state) => state.ShowDetails.selectedSeats);
-  const showDetailsData = useSelector((state) => state.ShowDetails.show).showDetails;
+  const showDetailsData = useSelector((state) => state.ShowDetails.show);
   const ticketId = 'D' + todayDate + 'T' + TodayTime;
 
   // To Update the Ticket Details into the Database..
@@ -41,7 +41,7 @@ export default function Ticket() {
 
   useEffect(() => {
     dispatch(setBarClass({ bar1: "bar ", bar2: "bar ", bar3: "bar bar-color" }));
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }, []);
 
   return (

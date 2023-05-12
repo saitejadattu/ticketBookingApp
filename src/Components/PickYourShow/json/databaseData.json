@@ -1,0 +1,132 @@
+{
+  "Cities": {
+    "Bangalore": {
+      "Inox": {
+        "Movies": {
+          "PS1": "",
+          "Ugram": "",
+          "Vikrant Rona": ""
+        },
+        "Seats": 250,
+        "Timings": {
+          "First Show": "7 : 00 pm",
+          "Matinee Show": "3 :  00 pm",
+          "Morning Show": "11 : 00 am"
+        }
+      },
+      "Miraj": {
+        "Movies": {
+          "DC": "",
+          "DIA": "",
+          "Marvel": ""
+        },
+        "Seats": 250,
+        "Timings": {
+          "First Show": "6 : 00 pm",
+          "Matinee Show": "2 : 00 pm",
+          "Mrg Show": "10 : 00 am",
+          "Second Show": "9 : 00 pm"
+        }
+      },
+      "PVP": {
+        "Movies": {
+          "1": "K.G.F",
+          "RRR": "",
+          "SALAR": ""
+        },
+        "Seats": 222,
+        "Timings": {
+          "First Show": "7 : 00 pm",
+          "Matinee Show": "3 : 00 pm",
+          "Mrg Show": "11 : 00 am",
+          "Second Show ": "10 : 00 pm"
+        }
+      }
+    },
+    "Chennai": {
+      "Asian": {
+        "Movies": {
+          "PS1": "",
+          "PS2": ""
+        },
+        "Seats": 300,
+        "Timings": {
+          "First Show": "7 : 00 pm",
+          "Morning Show": "10 : 00 am"
+        }
+      },
+      "Geetha": {
+        "Movies": {
+          "BB": "",
+          "Gilli": "",
+          "RRR": ""
+        },
+        "Seats": 222,
+        "Timings": {
+          "First Show": "7 : 00 pm",
+          "Matinee Show": "3 : 00 pm",
+          "Morning Show": "11 : 00 am"
+        }
+      }
+    },
+    "Hyderabad": {
+      "Asian Jyothi": {
+        "Movies": {
+          "Dukudu": "",
+          "Pokiri": ""
+        },
+        "Seats": 200,
+        "Timings": {
+          "Morning Show": "11 : 00 am",
+          "Second Show": "9 : 00 pm"
+        }
+      },
+      "Forum ": {
+        "Movies": {
+          "Bussiness Man": "",
+          "Khaleja": ""
+        },
+        "Seats": 198,
+        "Timings": {
+          "First Show": "7 : 30 pm",
+          "Mroning Show": "10 : 30  am"
+        }
+      },
+      "Prasads : Large Screen": {
+        "Movies": {
+          "Athadu": "",
+          "RRR2": "",
+          "RRR3": ""
+        },
+        "Seats": 250,
+        "Timings": {
+          "Mrg Show": "11 :  00 am",
+          "Second Show ": "11 : 00 pm"
+        }
+      }
+    },
+    "kochi": {
+      "PVP": {
+        "Movies": {
+          "Banglore Days": ""
+        },
+        "Seats": 300,
+        "Timings": {
+          "Matinee Show": "3 : 00 pm",
+          "Morning Show": "10 : 00  am"
+        }
+      },
+      "PVR Cinemas": {
+        "Movies": {
+          "Drushyam": "",
+          "Joseph": ""
+        },
+        "Seats": 120,
+        "Timings": {
+          "Matinee Show": "3: 00 pm",
+          "Morning show": "10 : 00 am"
+        }
+      }
+    }
+  }
+}

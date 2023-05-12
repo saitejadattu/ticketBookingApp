@@ -7,7 +7,8 @@ export default function PickShow() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setBarClass({ bar1: "bar bar-color", bar2: "bar", bar3: "bar" }));
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }, []);
   return (
     <div className='Show-picking-page'>

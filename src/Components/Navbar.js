@@ -37,7 +37,7 @@ export default function Navbar() {
                 <div className='Ticket' >
 
                     <div>
-                        <Link to='Ticket'>Ticket</Link>
+                        <Link to='Ticket' >Ticket</Link>
                     </div>
 
                     <Link to='Ticket'  >

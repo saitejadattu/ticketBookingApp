@@ -32,47 +32,31 @@ export default function HomePage() {
   }
 
   const navigateToPage = (route) => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     navigate(route);
   }
   return (
     <div className='Home-page'>
 
-      {/* 
-      <div className='Movies-carosel'>
-        <input type="radio" name="position"  />
-        <input type="radio" name="position" />
-        <input type="radio" name="position" checked/>
-        <input type="radio" name="position" />
-        <input type="radio" name="position" />
-        <main id="carousel">
-          <div class="item"><img src={Avengers} alt='Movie' /></div>
-          <div class="item"><img src={Avengers} alt='Movie' /></div>
-          <div class="item"><img src={Avengers} alt='Movie' /></div>
-          <div class="item"><img src={Avengers} alt='Movie' /></div>
-          <div class="item"><img src={Avengers} alt='Movie' /></div>
-        </main>
-      </div> 
-      */}
       <div className='Cities-card'>
         <div className='hyderabad city'>
-          <img src={HyderabadLogo} width='200px' height='200px' alt='City ' onClick={() => selectedCity('Hyderabad')} />
+          <img src={HyderabadLogo} width='200px' height='200px' alt='Hyderabad' onClick={() => selectedCity('Hyderabad')} />
         </div>
         <div className='chennai city'>
-          <img src={ChennaiLogo} width='200px' height='200px' alt='City ' onClick={() => selectedCity('Chennai')} />
+          <img src={ChennaiLogo} width='200px' height='200px' alt='Chennai' onClick={() => selectedCity('Chennai')} />
         </div>
         <div className='Bangalore city'>
-          <img src={BangaloreLogo} width='200px' height='200px' alt='City ' onClick={() => selectedCity('Bangalore')} />
+          <img src={BangaloreLogo} width='200px' height='200px' alt='Bangalore' onClick={() => selectedCity('Bangalore')} />
         </div>
         <div className='Kochi city'>
-          <img src={KochiLogo} width='200px' height='200px' alt='City ' onClick={() => selectedCity('kochi')} />
+          <img src={KochiLogo} width='200px' height='200px' alt='Kochi' onClick={() => selectedCity('kochi')} />
         </div>
       </div>
 
       <div className='workflow'>
         <div>
           <h3>Pick your show </h3>
-          <img src={popcorn} onClick={() => navigateToPage('/popcorn')} alt='info' />
+          <img src={popcorn} onClick={() => navigateToPage('/popcorn')} alt='popcorn' />
         </div>
         <div>
           <h3>Select the seats</h3>

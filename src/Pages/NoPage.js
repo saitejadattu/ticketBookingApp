@@ -2,7 +2,8 @@
 export default function NoPage() {
   return (
     <div className='No-page'>
-      <p>404  page not found...!</p><br /><br />
+      <p data-testid='id'>404  page not found...!</p>
+      <br /><br />
       <div className="cat">
         <div className="ear ear--left"></div>
         <div className="ear ear--right"></div>
